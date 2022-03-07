@@ -1,0 +1,69 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}
+    Decision
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper textbox">
+        <p>
+            There was an <b>inconsistency</b> regarding your commitment to a rule in the first stage
+            and one of your decisions in the second stage. Thus, we present you both choices
+            once more, giving you the <b>opportunity to make changes</b> if you wish to do so.
+            Note that you can also stick to your decisions in the earlier stages and <b>not make
+            any changes.</b>
+        </p>
+    </div>
+    <div class="wrapper textbox">
+        <p>
+            In the first stage, you were presented the following principle:
+        </p>
+        <p>
+            Consider two economic programs A and B such that the <b>lowest income individual</b> has
+            a <b>higher income</b> in program A than in program B.
+            <br><br>
+            <u><b>Principle</b></u>: In any such situation, <b>program A</b> with a higher income for the lowest income individual should be chosen.
+        </p>
+    </div>
+    <div class="wrapper attentionbox">
+            Your choice: <b>I want to commit to the principle.</b>
+    </div>
+    <div class="wrapper textbox">
+        <p>
+            In the second stage, you were presented the following decision task:
+        </p>
+        <p>
+            Consider the following economic programs A and B depicted in the pie chart below. The <b>first number</b>
+            in each segment corresponds to the income that this individual would receive <b>under program A</b>.
+            Respectively, the <b>second number</b> in each segment corresponds to the income that the same
+            individual would receive <b>under program B</b>.
+        </p>
+        <center><img align="middle" src="{{ url1 }}" alt="Pie Charts" class="center" style="width:400px;"></center>
+    </div>
+    <div class="wrapper attentionbox">
+        <p>
+            Your choice: <b>I want program A to be implemented.</b>.
+        </p>
+    </div>
+    <div class="wrapper textbox">
+        <p>
+            Below, you can make your final choice on whether to commit to the principle, as well as the
+            distribution decision.
+        </p>
+    </div>
+
+    <div class="wrapper attentionbox">
+            {% formfield player.axiom_rawls_revised %}
+            {% formfield player.dec1_revised %}
+    </div>
+
+    <button class="otree-btn-next btn btn-primary">Submit decision</button>
+
+{% endblock %}
+
+

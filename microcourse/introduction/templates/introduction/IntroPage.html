@@ -1,0 +1,36 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}
+    Welcome to the experiment!
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper textbox">
+        <h4>Dear participant,</h4><br>
+        <p>
+            this experiment consists of several tasks. You will be rewarded for the <b>completion</b> of the
+            experiment. In some tasks, you can earn <b>extra money</b> depending on your <b>decisions</b>. Some
+            other tasks will <b>not affect your own payment</b>, but your choices will decide how money is
+            <b>distributed among other individuals</b>. Note that these individuals will not be participants of
+            this same experiment, but be recruited from the register of Finnish citizens for other tasks.<br /><br>
+            For each task, you will receive a separate introduction which explains the task, as well as the
+            possible consequences. Any information provided to you will be accurate, and you will never be
+            intentionally deceived by the instructions. <b>Please read the instructions carefully.</b>
+        </p>
+        <p>
+            During the tasks, payments are expressed in <b>points</b>. These points will be converted into EUR at the
+            end of the experiment. Every <b>8 points</b> during the experiment correspond to <b>0.01 EUR</b>. This means
+            that <b>800 points</b> equal exactly <b>1 EUR</b>.<br><br>
+            You will earn <b>1600 points</b> for completing the experiment, plus <b>bonus payments</b> that you earn
+            during the different tasks. You will see a summary of your earnings at the end of the experiment.
+        </p>
+    </div>
+
+    <button class="otree-btn-next btn btn-primary">Start Experiment</button>
+
+{% endblock %}

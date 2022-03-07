@@ -1,0 +1,92 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+
+
+<script>
+Highcharts.chart('container', {
+  chart: {
+    type: 'column'
+  },
+  title: {
+    text: 'Income according to economic programs A and B'
+  },
+  xAxis: {
+    categories: ['Ind. 1', 'Ind. 2', 'Ind. 3', 'Ind. 4', 'Ind. 5', 'Ind. 6', 'Ind. 7', 'Ind. 8', 'Ind. 9', 'Ind. 10']
+  },
+  yAxis: {
+    title: {
+        text: 'Income'
+    },
+  },
+  plotOptions: {
+        series: {
+            enableMouseTracking: false
+        }
+    },
+  credits: {
+    enabled: false
+  },
+  series: [{
+    name: 'Program A',
+    data: {{ data_a|json }}
+  }, {
+    name: 'Program B',
+    data: {{ data_b|json }}
+  }]
+});
+</script>
+{% endblock %}
+
+{% block title %}
+    Ranking of programs
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper textbox">
+        <p>
+            Consider the following rule: <br>
+            {% if player.treatment == "one" %}
+            Consider the <b>n poorest</b> individuals in X and their <b>share of the total income</b>
+            of X. Compare this to the <b>n poorest</b> individuals in Y and their <b>share of the
+            total income</b> of Y.<br>
+            If <b>for all values of n</b> (from 1 to 10), their share in X is <b>never smaller</b>
+            than in Y, and it is <b>larger for at least one value of n</b>, then X is <b>preferable</b>
+            to Y.
+            {% else %}
+            Program X is <b>preferable</b> compared to Y if for <b>any percent</b>
+            (for example the 10%, 40% or 80%) of the <b>poorest</b> persons in X the
+            <b>share of total income</b> in X is <b>at least equal</b> to that in Y, and
+            the share of total income is <b>strictly larger</b> for at least one such group of people.
+            {% endif %}
+        </p>
+    </div>
+    <div class="wrapper textbox">
+        <p>
+            Consider the following economic programs A and B depicted in the bar charts below.
+            The <b>first bar</b> for each individual corresponds to the income that this individual would
+            receive <b>under program A</b>. Respectively, the <b>second bar</b> for each individual
+            corresponds to the income that the same individual would receive <b>under program B</b>.
+        </p>
+        <figure class="highcharts-figure">
+            <div id="container"></div>
+        </figure>
+    </div>
+    <div class="wrapper attentionbox">
+            {% formfield player.dec %}
+    </div>
+
+    <button class="otree-btn-next btn btn-primary">Submit</button>
+
+{% endblock %}
+

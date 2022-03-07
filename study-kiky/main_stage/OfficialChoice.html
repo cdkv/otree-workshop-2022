@@ -1,0 +1,44 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Part 2{{ endblock }}
+
+{{ block content }}
+
+<h3>
+    <b> Round {{player.round_number}}</b>
+</h3>
+
+<p>
+    It is important for you to know that all participants both in the role of officials and firms, have already participated in a similar decision situation in part 1. 
+</p>
+
+<p>
+    Based on both officials' and firms' decisions in part 1, we formed a group composed of:
+    <ul>
+        <li><b>officials </b>who <b>accepted</b> the private payment from the firms 
+    
+    {{ if player.official_condition == "corrupt"}} <b>3 times or more out of 5 rounds</b>
+    {{ else }} <b>2 times or less out of 5 rounds</b>
+    {{ endif }}, and</li>
+</ul>
+    
+ <ul>
+     <li><b>firms</b> who <b>offered</b> the private payment to the officials 
+
+    {{ if player.firm_condition == "corrupt"}} <b>3 times or more out of 5 rounds</b>
+    {{ else }} <b>2 times or less out of 5 rounds</b>
+    {{ endif }}</li>
+</ul> 
+    
+   <p>
+    From <b>this group</b>, we have randomly drawn the {{C.FIRM_ROLE}} associated with you.  
+</p>
+
+Now make your decision. Do you want to accept a private payment from the {{C.FIRM_ROLE}}?
+
+{{ formfields }}
+
+{{ next_button }}
+
+<img src="{{ static 'study_kiky/Payoff_structure.png' }}" width="700px"/>
+
+{{ endblock }}

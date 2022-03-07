@@ -1,0 +1,81 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}
+    Instructions
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper textbox">
+        <p>
+            In this stage of the experiment you will be asked to consider <b>principles</b> that
+            can be used to <b>compare different income distributions</b> where money is divided between <b>10
+            randomly drawn individuals</b>.
+        </p>
+        <p>
+            Your task is to <b>decide</b> which of these distributional <b>principles you agree with</b>, i.e. which
+            principles you would like to rely on when money is to be divided between other individuals (not involving
+            yourself).
+        </p>
+        <p>
+            In particular, we will verbally describe to you two income distributions, A and B, and a principle
+            which distinguishes between the two distributions. Subsequently, you can choose to
+            <b>commit to the principle</b>, i.e. to commit to distribute money to 10 randomly chosen individuals
+            according to this principle whenever it can be applied, or <b>not to commit</b>.
+        </p>
+    </div>
+    <div class="wrapper attentionbox">
+        <p>
+            <b><u>Here is an example:</u></b>
+        </p>
+        <p>
+            Consider two economic programs A and B such that all incomes in program A are <b>even numbers</b>, and all
+            incomes in program B are <b>odd numbers</b>.
+            <br><br>
+            <u><b>Principle</b></u>: In any such situation, <b>program A</b> with a even numbers should be chosen.
+            <br><br>
+            You will then have <b>two options</b> to chose from. <br><br>
+            The first option is <b>"I want to commit to the principle."</b>
+            You should chose this option, if you think that the principle <b>will always make the right decision</b>
+            between any two distributions that <b>it can be applied to</b>, i.e. whenever all incomes of program A are
+            even numbers, and all incomes of program B are odd numbers.<br><br>
+            The second option is <b>"I do not want to commit, but decide case by case."</b>
+            You should chose this option, if you think that the principle <b>will not always make the right decision</b>
+            between any two distributions that <b>it can be applied to</b>, for example because you think that sometimes
+            distribution B in which all incomes are odd numbers might be more desirable than distribution A in which all
+            incomes are even numbers.
+            <br><br>
+            Your commitment decisions are <b>consequential</b>. Specifically, we will implement an income distribution
+            for a group of 10 randomly drawn individuals based on your choices to commit or not to commit.
+        </p>
+    </div>
+    <div class="wrapper textbox">
+        <p>
+            <b><u>This is how it works:</u></b>
+        </p>
+        <p>
+            At the end of the experiment, a <b>random mechanism</b> will determine which of your decisions is chosen
+            for implementation. Each of the principles that will be presented to you has an <b>equal chance</b>
+            to be chosen.
+            <br><br>
+            Associated with each principle, there is a <b>pair of income distributions.</b>
+            The two distributions differ from each other such that the <b>principle can be applied</b> in the way it
+            was described to you. This means that it is possible to infer which distribution should be implemented
+            based on the principle.
+            <br><br>
+            If you <b>commit</b> to the principle, then the <b>choice</b> between the two distributions is made
+            <b>automatically based on the principle</b>, and this distribution will be implemented.
+            <br><br>
+            If you chose <b>not to commit</b>, then the pair will be presented to you to
+            <b>make a decision manually</b>, and the distribution you choose will be implemented.
+            <br><br>
+        </p>
+    </div>
+
+    <button class="otree-btn-next btn btn-primary">Continue</button>
+
+{% endblock %}

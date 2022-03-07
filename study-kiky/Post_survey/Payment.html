@@ -1,0 +1,16 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Payment{{ endblock }}
+
+{{ block content }}
+
+<p>
+    We randomly choose one round out of the nine rounds for your payment. 
+</p>
+<p>
+    Your total payment for this study is {{payoff}}. We will pay GBP 1.6 immediately and pay the difference as a Prolific bonus within one working day.
+</p>
+
+
+Click <a href="{{ session.prolific_completion_url }}">here</a> to complete the study.
+
+{{ endblock }}

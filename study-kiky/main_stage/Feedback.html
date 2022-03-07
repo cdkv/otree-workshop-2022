@@ -1,0 +1,18 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Payoffs{{ endblock }}
+
+{{ block content }}
+
+<p>
+   Based on the decisions from you and your associated partner, your earnings were:
+</p>
+{{for past_player in player.in_all_rounds}}
+<ul>
+    <li>In round <b>{{past_player.round_number}}</b> were <b>{{past_player.payoff}}</b> and the earnings donated to HIU were <b>{{past_player.payoff_society}}</b>.</li>
+</ul>
+   
+{{endfor}}
+
+{{ next_button }}
+
+{{ endblock }}

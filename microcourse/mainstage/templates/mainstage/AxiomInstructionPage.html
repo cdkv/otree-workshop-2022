@@ -1,0 +1,85 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}
+    Instructions
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper textbox">
+        <p>
+            In this survey, you will be presented different <b>distributional rules</b> that may
+            be applied to pairs of <b>different income programs</b>, i.e. pairs of income distributions,
+            to decide which of the program will be used when money is divided between <b>10 individuals</b>.
+        </p>
+        <p>
+            Your task is to <b>decide</b> which of these distributional <b>rules you agree with</b>, i.e. which
+            rules you would like to be implemented when money is to be divided between other individuals
+            (not involving yourself).
+        </p>
+        <p>
+            In particular, we will verbally describe to you two income distributions, A and B, and a principle
+            which distinguishes between the two distributions. Subsequently, you can choose to
+            <b>commit or not to the principle</b> (of how to distribute money to 10 randomly chosen individuals
+            whenever it can be applied).
+        </p>
+    </div>
+    <div class="wrapper attentionbox">
+        {% if player.round_number == 1 %}
+        <p>
+            <b><u>Here is an example:</u></b>
+        </p>
+        <p>
+            Consider two income programs A and B such that all incomes in program A are <b>even numbers</b>, and all
+            incomes in program B are <b>odd numbers</b>.
+            <br><br>
+            <u><b>Principle</b></u>: In any such situation, <b>program A</b> with even numbers should be chosen.
+            <br><br>
+            You will then have <b>two options</b> to choose from. <br><br>
+            The first option is <b>"I want to commit to the principle."</b>
+            You should choose this option if you think that the principle <b>will always make your preferred decision</b>
+            between any two distributions that <b>it can be applied to</b>, i.e. whenever all incomes of program A are
+            even numbers, and all incomes of program B are odd numbers.<br><br>
+            The second option is <b>"I do not want to commit, but decide case by case."</b>
+            You should choose this option if you think that the principle <b>will not always make your preferred decision</b>
+            between any two distributions that <b>it can be applied to</b>, for example because you think that sometimes
+            distribution B in which all incomes are odd numbers might be more desirable than distribution A in which all
+            incomes are even numbers.
+        </p>
+        {% endif %}
+        <p>
+            Your commitment decisions are <b>consequential</b>. Specifically, we will implement an income distribution
+            for a group of 10 randomly drawn individuals based on your choices to commit or not to commit.
+        </p>
+    </div>
+    <div class="wrapper textbox">
+        <p>
+            <b><u>This is how it works:</u></b>
+        </p>
+        <p>
+            At the end of the experiment, a <b>random mechanism</b> will determine which of your decisions is chosen
+            for implementation. Each decision in this stage can be chosen for implementation. You should <b>always
+            choose</b> the option that you <b>actually prefer</b>, because this is the only way to increase the chance
+            that your preferred option is implemented.
+            <br><br>
+            Associated with each rule, there is a <b>pair of income distributions.</b>
+            The two distributions differ from each other such that the <b>rule can be applied</b> in the way it
+            was described to you. This means that it is possible to infer which distribution should be implemented
+            based on the rule.
+            <br><br>
+            If you <b>commit</b> to the rule, then the <b>choice</b> between the two distributions is made
+            <b>automatically based on the rule</b>, and this distribution will be implemented.
+            <br><br>
+            If you chose <b>not to commit</b>, then the pair will be presented to you to
+            <b>make a decision manually</b>, and the distribution you choose will be implemented.
+            <br><br>
+        </p>
+    </div>
+
+    <button class="otree-btn-next btn btn-primary">Continue</button>
+
+{% endblock %}

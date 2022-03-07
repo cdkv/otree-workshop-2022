@@ -1,0 +1,76 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}
+    Instructions
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper textbox">
+        <p>
+            In this stage of the experiment you will be asked to <b>choose</b> between
+            <b>two different income distributions</b> where money is divided between <b>10
+            randomly drawn individuals</b>.
+        </p>
+        <p>
+            In particular, we will explicitly present to you a pair of income distributions, A and B,
+            <i>in a pie chart</i>. Each <b>segment</b> of the pie chart represents one <b>individual</b>.
+            The <b>first number</b> in each segment corresponds to the income that this individual would
+            receive <b>under program A</b>. Respectively, the <b>second number</b> in each segment
+            corresponds to the income that the same individual would receive <b>under program B</b>.
+            <br><br>
+            Your task is to <b>choose</b> either <b>program A or program B</b>, depending on which of the
+            programs you would prefer to distribute money across other individuals (not involving yourself).
+        </p>
+    </div>
+    <div class="wrapper attentionbox">
+        <p>
+            <b><u>Here is an example:</u></b>
+        </p>
+        <p>
+        <p>
+            Consider the following economic programs A and B depicted in the pie chart below. The <b>first number</b>
+            in each segment corresponds to the income that this individual would receive <b>under program A</b>.
+            Respectively, the <b>second number</b> in each segment corresponds to the income that the same
+            individual would receive <b>under program B</b>.
+        </p>
+        <center><img align="middle" src="{{ url1 }}" alt="Pie Charts" class="center" style="width:400px;"></center>
+        <p>
+            <br>
+            You will then have <b>two options</b> to chose from. <br><br>
+            The first option is <b>"I want program A to be implemented."</b>
+            You should chose this option, if you think that distribution A is preferable out of the two distributions
+            presented to you.
+            <br><br>
+            The second option is <b>"I want program B to be implemented."</b>
+            You should chose this option, if you think that distribution B is preferable out of the two distributions
+            presented to you.
+            <br><br>
+            Your distribution choices are <b>consequential</b>. Specifically, we will implement an income distribution
+            for a group of 10 randomly drawn individuals based on your choices.
+        </p>
+    </div>
+    <div class="wrapper textbox">
+        <p>
+            <b><u>This is how it works:</u></b>
+        </p>
+        <p>
+            At the end of the experiment, a <b>random mechanism</b> will determine which of your decisions is chosen
+            for implementation. Each of the pairs that will be presented to you has an <b>equal chance</b>
+            to be chosen.
+            <br><br>
+            If you chose <b>program A</b> in the randomly drawn pair of income distributions, then program A from
+            this pair will be implemented.
+            <br><br>
+            If you chose <b>program B</b> in the randomly drawn pair of income distributions, then program B from
+            this pair will be implemented.
+        </p>
+    </div>
+
+    <button class="otree-btn-next btn btn-primary">Continue</button>
+
+{% endblock %}

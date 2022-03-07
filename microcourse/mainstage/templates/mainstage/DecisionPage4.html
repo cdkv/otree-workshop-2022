@@ -1,0 +1,77 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+
+
+<script>
+Highcharts.chart('container', {
+  chart: {
+    type: 'column'
+  },
+  title: {
+    text: 'Income according to income programs A and B'
+  },
+  xAxis: {
+    categories: ['Ind. 1', 'Ind. 2', 'Ind. 3', 'Ind. 4', 'Ind. 5', 'Ind. 6', 'Ind. 7', 'Ind. 8', 'Ind. 9', 'Ind. 10']
+  },
+  yAxis: {
+    title: {
+        text: 'Income'
+    },
+  },
+  plotOptions: {
+        series: {
+            enableMouseTracking: false
+        }
+    },
+  credits: {
+    enabled: false
+  },
+  exporting: {
+    enabled: false
+  },
+  series: [{
+    name: 'Program A',
+    data: {{ data_a|json }}
+  }, {
+    name: 'Program B',
+    data: {{ data_b|json }}
+  }]
+});
+</script>
+{% endblock %}
+
+{% block title %}
+    Choosing income program
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper textbox">
+        <p>
+            Consider the following income programs A and B depicted in the bar charts below.
+            The <b>first bar</b> (in blue) for each individual corresponds to the income that this individual would
+            receive <b>under program A</b>. Respectively, the <b>second bar</b> (in black) for each individual
+            corresponds to the income that the same individual would receive <b>under program B</b>.
+        </p>
+        <figure class="highcharts-figure">
+            <div id="container"></div>
+        </figure>
+    </div>
+    <div class="wrapper attentionbox">
+            {% formfield player.dec4 %}
+    </div>
+
+    <button class="otree-btn-next btn btn-primary">Submit</button>
+
+{% endblock %}
+

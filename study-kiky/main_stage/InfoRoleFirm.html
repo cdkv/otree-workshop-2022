@@ -1,0 +1,30 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Part 2{{ endblock }}
+
+{{ block content }}
+
+{{if player.round_number == 1}}
+
+<h4>
+    Part 2 will begin shortly. Remember that!
+</h4>
+<p>
+    You have been randomly assigned to the role of <b>{{C.FIRM_ROLE}}.</b> As a {{C.FIRM_ROLE}}, you have been randomly matched with {{C.OFFICIAL_ROLE}} in part 1.
+</p>
+<p>
+    Please note that in Part 2 there is also a time restriction to complete the task in every round. The time limit is 45 seconds. 
+</p>
+
+{{endif}}
+
+<p>
+    In part 2, we divide the firms in two groups. Group 1 has offered the private payment no more than 2 times in part 1 and Group 2 has offered the payment at least 3 times in part 1. Similarly, we divide the officials in a group that has accepted the payment no more than 2 times and a group that has accepted the payment at least 3 times in part 1. 
+</p>
+<p>
+    For every decision in part 2, you will be associated with one group of the firms and one group of the officials. The groups will change for every decision and <b> you will be told which groups you are associated with </b>.
+</p>
+
+
+{{ next_button }}
+
+{{ endblock }}

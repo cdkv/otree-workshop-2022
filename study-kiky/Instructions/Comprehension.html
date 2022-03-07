@@ -1,0 +1,59 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Comprehension Questions{{ endblock }}
+
+{{ block content }}
+
+<p>
+    The following questions will help you understand the consequences associated with the different options you can choose in this study.
+    </p>
+<img src="{{ static 'study_kiky/Payoff_structure.png' }}" width="960px"/>
+<h3>
+    Question 1
+</h3>
+<p>
+    Assuming that a firm <b>offers</b> a private payment of 10 points to an official, and that an official <b>accepts</b> the offer. How much is the payoff for a <b>firm</b>? 
+</p>
+
+{{formfield 'compre_mgr'}}
+
+
+<h3>
+    Question 2
+</h3>
+<p>
+    When a firm <b>offers</b> a private payment of 10 points to an official, and that an official <b>rejects</b> the offer. How much is the payoff for a <b>firm</b>? 
+</p>
+
+{{formfield 'compre_mgr2'}}
+
+
+<h3>
+    Question 3
+</h3>
+<p>
+  When a firm <b>does not offer</b> a private payment to an official. How much is the payoff for an <b>official</b>? 
+</p>
+
+{{formfield 'compre_ofc'}}
+
+<h3>
+    Question 4
+</h3>
+<p>
+    When a firm <b>offers</b> a private payment of 10 points to an official, but an official <b>rejects </b> the offer. How much is the payoff for a <b> non-government organization (HIU)</b> ? 
+</p>
+
+{{formfield 'compre_soc'}}
+
+<h3>
+    Question 5
+</h3>
+<p>
+    When a firm <b>offers</b> a private payment of 10 points to an official, and an official <b>accepts </b> the offer. How much is the payoff for a <b> non-government organization (HIU)</b> ? 
+</p>
+
+{{formfield 'compre_soc2'}}
+
+{{ next_button }}
+
+{{ endblock }}

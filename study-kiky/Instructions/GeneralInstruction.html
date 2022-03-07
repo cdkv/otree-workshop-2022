@@ -1,0 +1,84 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Instructions{{ endblock }}
+
+{{ block content }}
+
+<p>
+    Please read the instruction carefully! You will be asked about your understanding of the instruction on the next page. 
+</p>
+
+<h3>
+    General Instruction:
+</h3>
+
+<p>
+    This is a study on decision-making in which you will earn cash. The money that you earn depends partly on the decisions that you make and another participant's decision, who has been randomly chosen and will be associated with you. Similarly, the money earned by your associated participant will depend on their decision and yours.   
+ </p>
+<p>
+    In addition, your decision and your associated participant’s decision will determine the amount of money we will donate to a non-profit organization named <b>"Hutan itu Indonesia (HIU)</b>" a <b>Non-Governmental Organization</b> based in Indonesia. HIU was established in April 2016 by young scholars and activists from various backgrounds.  Its main goal includes promoting sustainable forestry that balances the needs of the environment, wildlife, and forest communities and educating the awareness to conserve the forest for future generations.  
+</p>
+<p>
+    In this study, you will first be asked to complete a short survey. Then you will participate in the decision-making study, which is divided into two parts: Part 1 and 2. <b>Part 1 will have 5 decision rounds</b>, while <b>part 2 will have 4 decision rounds.</b> 
+</p>
+    <p>
+      We will <b>randomly choose ONE round out of the nine rounds</b> for your earning. Lastly, you will be asked to complete post-study questionnaires.   
+</p>
+
+<p>
+    Your earnings in this study are denominated in points, which will be exchanged at a rate of <b>1 point = GBP 0.08</b> at the end of the session. You will be given 30 points for every round both in Part 1 and Part 2. 
+</p>
+<p>
+    Your earnings in this study will be transfered to you on Prolific within a day after the session ends. To make our donation to HIU, we will make an online transfer for the amount of money corresponding to donations of this whole session, and we will later send you proof of the transfer through Prolific.  
+</p>
+
+<h3>
+    Detailed Instruction:
+</h3>
+<p>
+   In this study, you will be associated with another participant. Neither you nor anyone else will know whom you are associated with, neither during nor after the session. You (and your associated participant) will be presented with a situation similar to a <b>real-life situation</b>, in which you will have to make a decision with economic consequences. 
+    </p>
+    There are two roles in this situation: 
+    <ul>
+        <li>a Firm</li>
+        <li>an Official</li>
+</ul>  
+
+<p>
+    In every round, there is an endowment of 90 points, equally allocated as follows:
+</p>
+
+   <ul>
+      <li>Firm: 30 points </li>
+       <li>Official : 30 points</li>
+       <li>Non-profit organization, HIU: 30 points</li>
+</ul> 
+
+<p>
+    Participants in the role of <b>Firm</b> have two options: to <b>offer</b> or <b>not offer</b> private payment of 10 points to the official. 
+</p>
+<p>
+    Participants in the role of <b>Official</b> also have two options: to <b>accept</b> or <b>reject</b> private payment of 10 points from the firm. 
+</p>
+
+<p>
+    If the official <b>accepts </b>the payment, their payoff is 40 (30 + 10) points, the Firm receives an extra benefit of 20 points, but HIU loses its 30 points. This means that the Firm's payoff is 40 (30 - 10 + 20) points and HIU's payoff is 0 (30 - 30) points.
+</p>
+<p>
+    If the official <b>rejects</b> the payment, their payoff and HIU's payoff does not change but the Firm loses the proposed private payment. The Firm's payoff is then 20 (30 - 10) points.
+</p>
+
+<p>
+    For each decision scenario and its economics consequence, please refer to the following image. 
+</p>
+<img src="{{ static 'study_kiky/Payoff_structure.png' }}" width="960px"/>
+
+<p>
+    <b>Just a reminder that you will play in a total of 9 rounds in this study, and we will randomly choose ONE round out of the nine rounds for your earning.</b>
+</p>
+
+
+{{ next_button }}
+
+
+
+{{ endblock }}

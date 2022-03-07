@@ -1,0 +1,28 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Part 1{{ endblock }}
+
+{{ block content }}
+
+<h2>
+    <b> Round {{player.round_number}}</b>
+</h2>
+
+<h3>Remember that: </h3>
+
+<p>
+     You have been randomly assigned to the role of <b>{{C.FIRM_ROLE}}</b>. As a <b>{{C.FIRM_ROLE}}</b>, you have to decide whether to <b>offer (or not to offer</b>) a private payment of 10 points to the {{C.OFFICIAL_ROLE}} to make a deal that <b>improves your and official's monetary earnings but decreases HIU's.</b> 
+</p>
+
+<p>
+   Your earning in every decision will be partly dependent on the official's decision that is randomly associated with you. Figure 1 contains a representation for possible earnings denoted in points. 
+</p>
+
+Now, make your decision. Do you want to make an offer of a private payment to the {{C.OFFICIAL_ROLE}}?
+
+{{ formfields }}
+
+{{ next_button }}
+
+<img src="{{ static 'study_kiky/Payoff_structure.png' }}" width="700px"/>
+
+{{ endblock }}

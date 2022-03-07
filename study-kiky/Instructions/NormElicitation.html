@@ -1,0 +1,24 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Making Predictions to Other Participants' Choices{{ endblock }}
+
+{{ block content }}
+
+<p>
+    Before you make decisions, we ask you to <b>estimate</b> the percentage of other participants (both in the role of firms and officials) in today's session that chooses each option. 
+</p>
+<p>
+    <i> The total percentage must sum to 100.</i>
+</p>
+{{formfield 'firm_1'}}
+{{formfield 'firm_2'}}
+
+<p>
+    <i> The total percentage must sum to 100.</i>
+</p>
+{{formfield 'ofc_1'}}
+{{formfield 'ofc_2'}}
+
+
+{{ next_button }}
+
+{{ endblock }}

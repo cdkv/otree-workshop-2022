@@ -1,0 +1,19 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Before you start{{ endblock }}
+
+{{ block content }}
+
+<p>
+    Part 1 will begin shortly.
+</p> 
+<p>
+    Before each decision, you may have to wait for everyone (both in the role of a firm and an official) in the same session as yours to make their decisions before proceeding to the next round. 
+</p>
+
+<p>
+    Please note that there is a time limit of {{C.TIME_OUT}} seconds in every round for Part 1. The time restriction is in place so that you do not have to wait for participants who take longer to complete the task. You only need to take one decision within the time limit. Therefore, make sure that you can complete each round before the time out. 
+</p>
+
+{{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,117 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+
+{% block scripts %}
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+
+
+<script>
+Highcharts.chart('container', {
+  chart: {
+    type: 'column'
+  },
+  title: {
+    text: 'Income according to economic programs A and B'
+  },
+  xAxis: {
+    categories: ['Ind. 1', 'Ind. 2', 'Ind. 3', 'Ind. 4', 'Ind. 5', 'Ind. 6', 'Ind. 7', 'Ind. 8', 'Ind. 9', 'Ind. 10']
+  },
+  yAxis: {
+    title: {
+        text: 'Income'
+    },
+  },
+  plotOptions: {
+        series: {
+            enableMouseTracking: false
+        }
+    },
+  credits: {
+    enabled: false
+  },
+  exporting: {
+    enabled: false
+  },
+  series: [{
+    name: 'Program A',
+    data: {{ data_a|json }}
+  }, {
+    name: 'Program B',
+    data: {{ data_b|json }}
+  }]
+});
+</script>
+{% endblock %}
+
+{% block title %}
+    Decision
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper textbox">
+        <p>
+            There was an <b>inconsistency</b> regarding your commitment to a rule in the first stage
+            and one of your decisions in the second stage. Thus, we present you both choices
+            once more, giving you the <b>opportunity to make changes</b> if you wish to do so.
+            Note that you can also stick to your decisions in the earlier stages and <b>not make
+            any changes.</b>
+        </p>
+    </div>
+    <div class="wrapper textbox">
+        <p>
+            In the first stage, you were presented the following rule:
+        </p>
+        <p>
+            {{ axiom_text }}
+        </p>
+    </div>
+    <div class="wrapper attentionbox">
+            Your choice: <b>I want to commit to the rule.</b>
+    </div>
+
+    <div class="wrapper textbox">
+        <p>
+            In the second stage, you were presented the following decision task:
+        </p>
+        <p>
+            Consider the following economic programs A and B depicted in the bar charts below.
+            The <b>first bar</b> for each individual corresponds to the income that this individual would
+            receive <b>under program A</b>. Respectively, the <b>second bar</b> for each individual
+            corresponds to the income that the same individual would receive <b>under program B</b>.
+        </p>
+        <figure class="highcharts-figure">
+            <div id="container"></div>
+        </figure>
+    </div>
+    <div class="wrapper attentionbox">
+        <p>
+            Your choice: <b>I want program {{ choice }} to be implemented.</b>.
+        </p>
+    </div>
+    <div class="wrapper textbox">
+        <p>
+            Below, you can make your final choice on whether to commit to the rule, as well as the
+            distribution decision. Recall that <b>both decisions</b> may be randomly picked for <b>implementation</b>.
+            Also recall that, if the rule commitment decision is randomly picked, the rule is applied to a pair of
+            income distributions, which is not necessarily the same pair that you are given an option to revise.
+        </p>
+    </div>
+
+    <div class="wrapper attentionbox">
+            {% formfields %}
+    </div>
+
+    <button class="otree-btn-next btn btn-primary">Submit decision</button>
+
+{% endblock %}
+
+

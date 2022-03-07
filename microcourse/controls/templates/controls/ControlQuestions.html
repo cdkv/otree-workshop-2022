@@ -1,0 +1,176 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet"/>
+    <link href="{% static 'nouislider.min.css' %}" rel="stylesheet">
+    <script src="{% static 'wNumb.min.js' %}"></script>
+    <script src="{% static 'nouislider.min.js' %}"></script>
+{% endblock %}
+
+{% block title %}
+    Survey
+{% endblock %}
+
+
+{% block content %}
+    {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+            <h6 class="alert-heading">Please answer all survey questions on this page.</h6>
+        </div>
+    {% endif %}
+
+    <div class="wrapper textbox">
+        <p>
+            In this survey, we will ask some questions about your background. Please note that all of your answers will
+            be treated confidentially, and no-one will be able to track them back to you as an individual.
+        </p>
+    </div>
+    <div class="wrapper textbox">
+        {% formfield player.income %}
+    </div>
+    <div class="wrapper textbox">
+        It is sometimes said that the world is a just place in general, where all people normally get what they
+        deserve, are treated fairly, and will be compensated for experienced injustices. Do you agree with that
+        statement? <br> <br>
+        <div type="range" class="noUiSlider" id="slider_justworld"></div>
+        <input type="hidden" name="justworld" value="" id="jw"/>
+        <input type="hidden" name="check_justworld" value="" id="id_check_justworld"/>
+        <br> <br><br>
+    </div>
+    <div class="wrapper textbox">
+        It is sometimes said that political views can be placed on a left-right scale. Where would you place yourself
+        on such a scale? <br> <br>
+        <div type="range" class="noUiSlider" id="slider_political_right"></div>
+        <input type="hidden" name="political_right" value="" id="pol_r"/>
+        <input type="hidden" name="check_political_right" value="" id="id_check_political_right"/>
+        <br><br>
+    </div>
+    <button class="otree-btn-next btn btn-primary">Continue</button>
+
+    <div class="noUiSlider">
+    <script>
+
+    var slider_political_right = document.getElementById('slider_political_right');
+    var slider_justworld = document.getElementById('slider_justworld');
+
+    var political_right_output = document.getElementById('pol_r');
+    var justworld_output = document.getElementById('jw');
+
+    var check_political_right_output = document.getElementById('id_check_political_right');
+    var check_justworld_output = document.getElementById('id_check_justworld');
+
+    /* Space looks stupid because IE doesn't allow Array() */
+    var pipFormats1;
+    var pipFormats2;
+
+    pipFormats1 = {'0': '&nbsp&nbsp' + 'Left', '100': 'Right' + '&nbsp&nbsp&nbsp&nbsp&nbsp'};
+    pipFormats2 = {'0': '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' + 'Completely' + '<br>'
+            + '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' + 'agree',
+        '50': 'Neither agree' + '<br>' + 'nor disagree',
+        '100': 'Completely' + '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'
+            + '<br>' + 'disagree'  + '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'};
+
+    // Initializing the sliders
+    noUiSlider.create(slider_political_right, {
+    start: 0,
+    step: 1,
+    format: wNumb({decimals: 0}),
+    // Disable animation on value-setting,
+    // so the sliders respond immediately.
+    animate: false,
+    range: {
+        'min': 0,
+        'max': 100
+    },
+    pips: {
+        mode: 'range',
+        density: 100,
+        format: {
+            to: function(a) {
+                return pipFormats1[a];
+            }
+        }
+    }
+    });
+
+    noUiSlider.create(slider_justworld, {
+    start: 0,
+    step: 1,
+    format: wNumb({decimals: 0}),
+    // Disable animation on value-setting,
+    // so the sliders respond immediately.
+    animate: false,
+    range: {
+        'min': 0,
+        'max': 100
+    },
+    pips: {
+        mode: 'count',
+        values: 3,
+        density: 50,
+        format: {
+            to: function(a) {
+                return pipFormats2[a];
+            }
+        }
+    }
+    });
+
+    // Update the input formfield values with the slider values
+    slider_political_right.noUiSlider.on('update', function (values, handle) {
+        political_right_output.value = values[handle];
+    });
+    slider_justworld.noUiSlider.on('update', function (values, handle) {
+        justworld_output.value = values[handle];
+    });
+    </script>
+    </div>
+
+    <style>
+        .otree-form-errors {
+            visibility: hidden;
+            display: none;
+        }
+        .noUi-slide {
+            width: 100%; /* Width of the outside container */
+        }
+        .noUi-tooltip {
+            display: none;
+        }
+        .noUi-active .noUi-tooltip {
+            display: block;
+        }
+        .noUi-handle {
+            display: none;
+        }
+        .noUi-pips {
+            margin-top: -5px;
+        }
+        .noUi-marker {
+            margin-top: -4px;
+        }
+        .noUi-value {
+            margin-top: -5px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            var handle_style1 = document.getElementById("slider_political_right").querySelector('.noUi-handle');
+            var handle_style2 = document.getElementById("slider_justworld").querySelector('.noUi-handle');
+
+            slider_political_right.noUiSlider.on('slide', function () {
+                handle_style1.style.display = 'block';
+                handle_style1.style.background = '#007bff';
+                check_political_right_output.value = 1;
+            });
+            slider_justworld.noUiSlider.on('slide', function () {
+                handle_style2.style.display = 'block';
+                handle_style2.style.background = '#007bff';
+                check_justworld_output.value = 1;
+            });
+        });
+    </script>
+
+{% endblock %}
